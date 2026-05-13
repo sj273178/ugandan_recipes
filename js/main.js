@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSearchOverlay();
   initActiveNavLinks();
   initScrollAnimations();
+  initStarRatings();
 });
 
 /* =========================================================
@@ -142,4 +143,21 @@ function initScrollAnimations() {
   );
 
   elements.forEach((el) => observer.observe(el));
+}
+
+/* =========================================================
+   STAR RATINGS — renders ★ stars from data-rating="4.9"
+========================================================= */
+function initStarRatings() {
+  document.querySelectorAll("[data-rating]").forEach((el) => {
+    const rating = Number(el.dataset.rating) || 0;
+    const fullStars = Math.round(rating);
+    const stars = Array.from(
+      { length: 5 },
+      (_, i) =>
+        `<span class="star ${i < fullStars ? "filled" : "empty"}">★</span>`,
+    ).join("");
+
+    el.innerHTML = `${stars}<span class="rating-value">${rating.toFixed(1)}</span>`;
+  });
 }
