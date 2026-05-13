@@ -1301,6 +1301,82 @@ p {
   transform: translateY(-4px);
 }
 
+.cta-section {
+  position: relative;
+  overflow: hidden;
+  padding: 6.5rem 0;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(201, 168, 76, 0.18),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(192, 57, 43, 0.18),
+      transparent 22%
+    ),
+    var(--dark);
+}
+
+.cta-content {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-content h2 {
+  color: #fff;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  margin-bottom: 1rem;
+}
+
+.cta-content p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.05rem;
+}
+
+/* White section-label variant for dark backgrounds */
+.section-label-light {
+  color: #fff;
+  justify-content: center;
+}
+
+.section-label-light::before,
+.section-label-light::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 5rem 0;
+  }
+
+  .cta-actions {
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-actions .btn {
+    width: 100%;
+  }
+}
+
 /* =========================================================
    RESPONSIVE — FOOTER
 ========================================================= */
