@@ -848,3 +848,294 @@ p {
     width: 100%;
   }
 }
+
+/* =========================================================
+   SECTION UTILITIES
+========================================================= */
+.section {
+  padding: 6.5rem 0;
+}
+
+.section-header {
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.section-header.align-left {
+  max-width: 100%;
+  margin-inline: 0;
+  text-align: left;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.section-label::before,
+.section-label::after {
+  content: "";
+  width: 42px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--yellow-lime),
+    transparent
+  );
+}
+
+.section-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.section-header.align-left .section-subtitle {
+  margin-inline: 0;
+}
+
+/* =========================================================
+   BADGES
+========================================================= */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.badge.special {
+  color: var(--dark);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+/* =========================================================
+   RATING STARS
+========================================================= */
+.rating-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.18rem;
+  color: var(--yellow-lime);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.rating-stars.light {
+  color: #fff;
+}
+
+.rating-stars .star.empty {
+  color: rgba(201, 168, 76, 0.3);
+}
+
+.rating-stars.light .star.empty {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.rating-stars .rating-value {
+  color: var(--text-secondary);
+  margin-left: 0.35rem;
+  font-size: 0.9rem;
+}
+
+.rating-stars.light .rating-value {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* =========================================================
+   TOP RECIPES GRID
+========================================================= */
+.top-recipes-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.5rem;
+}
+
+/* Featured large card */
+.featured-top-card {
+  position: relative;
+  min-height: 620px;
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-xl);
+}
+
+.featured-top-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 800ms ease;
+}
+
+.featured-top-card:hover img {
+  transform: scale(1.06);
+}
+
+.featured-top-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(28, 28, 30, 0.02),
+    rgba(28, 28, 30, 0.92)
+  );
+}
+
+.featured-top-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 2rem;
+  color: #fff;
+}
+
+.featured-top-content h3 {
+  color: #fff;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.5rem, 2.4vw, 2.3rem);
+  margin: 0.8rem 0 0.9rem;
+}
+
+.featured-top-content p {
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 1rem;
+}
+
+.featured-top-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 1.15rem;
+  font-size: 0.94rem;
+  font-weight: 600;
+}
+
+/* Thumbnail list (right column) */
+.top-recipe-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.top-thumb-card {
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  gap: 1rem;
+  background: #fff;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition:
+    transform var(--transition-spring),
+    box-shadow var(--transition-base);
+}
+
+.top-thumb-card:hover {
+  transform: translateX(8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.top-thumb-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.top-thumb-body {
+  padding: 1rem 1rem 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.top-thumb-body h4 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  color: var(--text-primary);
+}
+
+.top-thumb-body p {
+  font-size: 0.92rem;
+}
+
+.top-thumb-link {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.92rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: gap var(--transition-base);
+}
+
+.top-thumb-link:hover {
+  gap: 0.6rem;
+}
+
+.food-card-category {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--primary);
+}
+
+/* =========================================================
+   RESPONSIVE — TOP RATED
+========================================================= */
+@media (max-width: 1024px) {
+  .top-recipes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-top-card {
+    min-height: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 5rem 0;
+  }
+
+  .top-thumb-card {
+    grid-template-columns: 108px 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-thumb-card {
+    grid-template-columns: 96px 1fr;
+  }
+}
