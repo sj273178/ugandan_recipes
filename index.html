@@ -15,9 +15,11 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <!-- ===================== NAVBAR ===================== -->
     <nav class="navbar" id="navbar">
       <div class="container">
         <div class="navbar-inner">
+          <!-- Logo -->
           <a href="index.html" class="navbar-logo">
             <div class="logo-icon">🍽️</div>
             <div class="logo-text">
@@ -25,12 +27,16 @@
               <span>Uganda</span>
             </div>
           </a>
+
+          <!-- Desktop nav links -->
           <ul class="navbar-nav">
             <li><a href="index.html" class="nav-link active">Home</a></li>
             <li><a href="recipes.html" class="nav-link">Recipes</a></li>
             <li><a href="about.html" class="nav-link">About</a></li>
             <li><a href="contact.html" class="nav-link">Contact</a></li>
           </ul>
+
+          <!-- Right-side actions -->
           <div class="navbar-actions">
             <button class="search-toggle" id="searchToggle" aria-label="Search">
               🔍
@@ -48,6 +54,7 @@
       </div>
     </nav>
 
+    <!-- ===================== MOBILE MENU ===================== -->
     <div class="mobile-menu" id="mobileMenu">
       <ul class="mobile-nav-links">
         <li><a href="index.html" class="mobile-nav-link active">🏠 Home</a></li>
@@ -60,6 +67,7 @@
       </a>
     </div>
 
+    <!-- ===================== SEARCH OVERLAY ===================== -->
     <div class="search-overlay" id="searchOverlay">
       <div class="search-box">
         <div class="search-input-wrapper">
@@ -72,164 +80,18 @@
           />
           <button class="search-close" id="searchClose">✕</button>
         </div>
-        <p
-          style="
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.85rem;
-            margin-top: 12px;
-            text-align: center;
-          "
-        >
+        <p class="search-hint">
           Try: Rolex, Luwombo, Matoke, Pilau, Chapati...
         </p>
       </div>
     </div>
 
-    <main>
-      <section class="hero" id="home">
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
-        <div class="container">
-          <div class="hero-content animate-in" data-animate>
-            <div class="hero-label">
-              <span>🇺🇬</span>
-              Authentic Ugandan Cuisine
-            </div>
-            <h1 class="hero-title">
-              Discover the
-              <br />
-              <em class="highlight">Rich Flavours</em>
-              <br />
-              of Uganda
-            </h1>
-            <p class="hero-text">
-              From the smoky streets of Kampala to the royal kitchens of Buganda
-              — explore Uganda's most beloved recipes, time-honoured traditions,
-              and unforgettable tastes.
-            </p>
-            <div class="hero-actions">
-              <a href="recipes.html" class="btn btn-primary btn-lg">
-                🍽️ Explore Recipes
-              </a>
-              <a href="about.html" class="btn btn-ghost btn-lg">Our Story</a>
-            </div>
-            <div class="hero-stats">
-              <div class="stat-item">
-                <div class="stat-number">120+</div>
-                <div class="stat-label">Recipes</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">50K+</div>
-                <div class="stat-label">Food Lovers</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">4.9★</div>
-                <div class="stat-label">Rating</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="hero-scroll">
-          <div class="hero-scroll-line"></div>
-          <span>Scroll</span>
-        </div>
-      </section>
-      <section class="section">
-        <div class="container">
-          <div class="section-header align-left">
-            <div class="section-label">Trending Now</div>
-            <h2 class="section-title">Top Rated This Week</h2>
-            <p class="section-subtitle">
-              Highly loved recipes inspiring family meals, festive tables and
-              unforgettable street food moments.
-            </p>
-          </div>
-          <div class="top-recipes-grid">
-            <article class="featured-top-card" data-animate>
-              <img src="/assets/images/pilau.jpg" alt="Pilau" loading="lazy" />
-              <div class="featured-top-content">
-                <span class="badge special">Chef's Featured Pick</span>
-                <h3>Pilau</h3>
-                <p>
-                  Warm spices, tender beef and caramelized onions come together
-                  in one beautifully fragrant festive rice dish.
-                </p>
-                <div class="featured-top-meta">
-                  <div class="rating-stars light" data-rating="4.9"></div>
-                  <span>⏱ 1 hr</span>
-                  <span>🍽️ Celebration favourite</span>
-                </div>
-                <a href="recipe-detail.html" class="btn btn-primary">
-                  Cook this recipe
-                </a>
-              </div>
-            </article>
-            <div class="top-recipe-list">
-              <article class="top-thumb-card" data-animate>
-                <img
-                  src="/assets/images/luwombo.jpg"
-                  alt="Luwombo"
-                  loading="lazy"
-                />
-                <div class="top-thumb-body">
-                  <span class="food-card-category">Traditional</span>
-                  <h4>Luwombo</h4>
-                  <p>2 hrs · Hard</p>
-                  <a href="recipe-detail.html" class="top-thumb-link">
-                    View Recipe →
-                  </a>
-                </div>
-              </article>
-              <article class="top-thumb-card" data-animate>
-                <img
-                  src="/assets/images/matooke.jpg"
-                  alt="Matoke"
-                  loading="lazy"
-                />
-                <div class="top-thumb-body">
-                  <span class="food-card-category">Traditional</span>
-                  <h4>Matoke</h4>
-                  <p>45 min · Medium</p>
-                  <a href="recipe-detail.html" class="top-thumb-link">
-                    View Recipe →
-                  </a>
-                </div>
-              </article>
-              <article class="top-thumb-card" data-animate>
-                <img
-                  src="/assets/images/chapati.webp"
-                  alt="Chapati"
-                  loading="lazy"
-                />
-                <div class="top-thumb-body">
-                  <span class="food-card-category">Breakfast</span>
-                  <h4>Chapati</h4>
-                  <p>30 min · Medium</p>
-                  <a href="recipe-detail.html" class="top-thumb-link">
-                    View Recipe →
-                  </a>
-                </div>
-              </article>
-              <article class="top-thumb-card" data-animate>
-                <img
-                  src="/assets/images/peanut_sauce.jpg"
-                  alt="Groundnut Sauce"
-                  loading="lazy"
-                />
-                <div class="top-thumb-body">
-                  <span class="food-card-category">Traditional</span>
-                  <h4>Groundnut Sauce</h4>
-                  <p>35 min · Medium</p>
-                  <a href="recipe-detail.html" class="top-thumb-link">
-                    View Recipe →
-                  </a>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+    <!-- Toast notification -->
+    <div class="toast" id="toast">
+      <span class="toast-icon"></span>
+      <span id="toastMessage"></span>
+    </div>
+
     <script src="js/main.js"></script>
   </body>
 </html>
