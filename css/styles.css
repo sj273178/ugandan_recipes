@@ -597,3 +597,254 @@ ol {
     justify-content: center;
   }
 }
+
+/* =========================================================
+   TYPOGRAPHY — HERO
+========================================================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", Georgia, serif;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: clamp(2.9rem, 5vw, 5.8rem);
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.highlight {
+  color: var(--yellow-lime);
+  font-style: italic;
+  text-shadow: 0 10px 28px rgba(201, 168, 76, 0.22);
+}
+
+/* =========================================================
+   ANIMATIONS — SCROLL REVEAL
+========================================================= */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+}
+
+[data-animate].animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   ADDITIONAL BUTTON VARIANTS (hero)
+========================================================= */
+.btn-ghost {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-lg {
+  min-height: 56px;
+  padding: 1rem 1.65rem;
+}
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--navbar-height);
+  overflow: hidden;
+}
+
+/* Background image */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("/assets/images/rolex.jpeg");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.04);
+}
+
+/* Dark gradient overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(201, 168, 76, 0.22),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(28, 28, 30, 0.82),
+      rgba(28, 28, 30, 0.45) 45%,
+      rgba(192, 57, 43, 0.25)
+    );
+}
+
+/* Hero content */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  color: #fff;
+  padding: 3rem 0 5rem;
+}
+
+/* Uganda flag label pill */
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+  margin-bottom: 1.5rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.hero-title {
+  color: #fff;
+  margin-bottom: 1.25rem;
+}
+
+.hero-text {
+  max-width: 640px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.08rem;
+  margin-bottom: 2rem;
+}
+
+/* CTA buttons row */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Stats row */
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.stat-item {
+  min-width: 140px;
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.11);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.stat-number {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.stat-label {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.92rem;
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.72);
+  z-index: 1;
+  animation: bounce 2.2s infinite;
+  font-size: 0.82rem;
+}
+
+.hero-scroll-line {
+  width: 2px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.85)
+  );
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — HERO
+========================================================= */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-bottom: 6rem;
+  }
+
+  .hero-content {
+    padding-top: 6rem;
+  }
+
+  .hero-actions,
+  .hero-stats {
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .stat-item {
+    width: 100%;
+  }
+}
