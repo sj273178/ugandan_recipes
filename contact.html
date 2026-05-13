@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Contact TasteUganda for recipe requests, collaborations, press enquiries and more."
+    />
+    <title>Contact | Taste Uganda</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E🍽️%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <nav class="navbar" id="navbar">
+      <div class="container">
+        <div class="navbar-inner">
+          <a href="index.html" class="navbar-logo">
+            <div class="logo-icon">🍽️</div>
+            <div class="logo-text">
+              Taste
+              <span>Uganda</span>
+            </div>
+          </a>
+          <ul class="navbar-nav">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="recipes.html" class="nav-link">Recipes</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link active">Contact</a></li>
+          </ul>
+          <div class="navbar-actions">
+            <button class="search-toggle" id="searchToggle" aria-label="Search">
+              🔍
+            </button>
+            <a href="recipes.html" class="btn btn-primary btn-nav">
+              Explore Recipes
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="page-hero page-hero-sm">
+        <div
+          class="page-hero-bg"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1920&q=80&quot;);
+          "
+        ></div>
+        <div class="container">
+          <div class="page-hero-content" data-animate>
+            <div class="breadcrumb">
+              Home
+              <span>›</span>
+              Contact
+            </div>
+            <h1>Get In Touch</h1>
+            <p>
+              We'd love to hear from you about our recipes, collaborations, or
+              just to say hello!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="contact-grid">
+            <div class="contact-info-card" data-animate>
+              <h2>Contact Information</h2>
+              <p>
+                Whether you are craving a recipe, planning a collaboration or
+                looking to celebrate Ugandan food with us, our team is ready to
+                connect.
+              </p>
+              <div class="contact-detail-list">
+                <div class="contact-detail">
+                  <div class="contact-detail-icon">📍</div>
+                  <div>
+                    <div class="contact-detail-title">
+                      <strong>Location</strong>
+                    </div>
+                    <div class="contact-detail-text">
+                      Plot 45, Kampala Road, Kampala, Uganda
+                    </div>
+                  </div>
+                </div>
+                <div class="contact-detail">
+                  <div class="contact-detail-icon">📧</div>
+                  <div>
+                    <div class="contact-detail-title">
+                      <strong>Email</strong>
+                    </div>
+                    <div class="contact-detail-text">hello@tasteuganda.ug</div>
+                  </div>
+                </div>
+                <div class="contact-detail">
+                  <div class="contact-detail-icon">📞</div>
+                  <div>
+                    <div class="contact-detail-title">
+                      <strong>Phone</strong>
+                    </div>
+                    <div class="contact-detail-text">+256 700 123 456</div>
+                  </div>
+                </div>
+                <div class="contact-detail">
+                  <div class="contact-detail-icon">🕐</div>
+                  <div>
+                    <div class="contact-detail-title">
+                      <strong>Hours</strong>
+                    </div>
+                    <div class="contact-detail-text">
+                      Monday – Friday, 9:00 AM – 6:00 PM EAT
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="social-row">
+                <a href="#" class="contact-social" aria-label="Facebook">📘</a>
+                <a href="#" class="contact-social" aria-label="Instagram">📷</a>
+                <a href="#" class="contact-social" aria-label="Twitter">🐦</a>
+                <a href="#" class="contact-social" aria-label="YouTube">▶️</a>
+              </div>
+            </div>
+            <div class="contact-form-card" data-animate>
+              <h2>Send Us a Message</h2>
+              <p style="margin-bottom: 1.5rem">
+                Tell us what you are cooking, what you are curious about or how
+                you would like to work together.
+              </p>
+              <form class="contact-form" id="contactForm">
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      placeholder="Amara"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      placeholder="Nalubega"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <select id="subject" name="subject">
+                    <option>General Enquiry</option>
+                    <option>Recipe Request</option>
+                    <option>Collaboration</option>
+                    <option>Press &amp; Media</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Share your message here..."
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg">
+                  Send Message 📨
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background: var(--cream-2)">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-label">Need Answers?</div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">
+              Quick responses to the questions we hear most from our readers,
+              partners and fellow food enthusiasts.
+            </p>
+          </div>
+          <div class="faq-list">
+            <details class="faq-item" data-animate>
+              <summary>Are all recipes authentic Ugandan dishes?</summary>
+              <div class="faq-content">
+                Yes. Our recipes are rooted in authentic Ugandan cooking
+                traditions. Some are adapted slightly for home kitchens, but we
+                always preserve the original flavour profile and cultural story.
+              </div>
+            </details>
+            <details class="faq-item" data-animate>
+              <summary>Can I submit my own recipes?</summary>
+              <div class="faq-content">
+                Absolutely. We love hearing from home cooks and food
+                storytellers. Reach out through the contact form with your
+                recipe idea, family history and any helpful preparation notes.
+              </div>
+            </details>
+            <details class="faq-item" data-animate>
+              <summary>Do you offer cooking classes or workshops?</summary>
+              <div class="faq-content">
+                We periodically host intimate demonstrations, cultural dinners
+                and brand collaborations. Contact us if you would like to book a
+                private experience or partner on an event.
+              </div>
+            </details>
+            <details class="faq-item" data-animate>
+              <summary>How can I collaborate with TasteUganda?</summary>
+              <div class="faq-content">
+                We welcome collaborations in food media, tourism, hospitality
+                and brand storytelling. Choose “Collaboration” in the subject
+                dropdown and tell us more about your idea.
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section section-sm">
+        <div class="container">
+          <div class="cta-content" data-animate>
+            <h2>Follow Our Food Journey</h2>
+            <p>
+              Stay close to the table for fresh recipes, behind-the-scenes
+              kitchen moments and new Ugandan flavour stories.
+            </p>
+            <div class="cta-actions">
+              <a href="#" class="btn btn-primary">Instagram</a>
+              <a href="#" class="btn btn-ghost">YouTube</a>
+              <a href="#" class="btn btn-ghost">TikTok</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="navbar-logo">
+              <div class="logo-icon">🍽️</div>
+              <div class="logo-text" style="color: #fff">
+                Taste
+                <span>Uganda</span>
+              </div>
+            </a>
+            <p style="margin-top: 1rem">
+              Celebrating the rich culinary heritage of Uganda, one recipe at a
+              time.
+            </p>
+            <div class="social-row">
+              <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+              <a href="#" class="social-btn" aria-label="Instagram">📷</a>
+              <a href="#" class="social-btn" aria-label="Twitter">🐦</a>
+              <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
+              <a href="#" class="social-btn" aria-label="TikTok">📱</a>
+            </div>
+          </div>
+          <div>
+            <h4 class="footer-title">Quick Links</h4>
+            <div class="footer-links">
+              <a href="index.html">Home</a>
+              <a href="recipes.html">All Recipes</a>
+              <a href="about.html">About Us</a>
+              <a href="contact.html">Contact</a>
+              <a href="recipes.html">Top Recipes</a>
+            </div>
+          </div>
+          <div>
+            <h4 class="footer-title">Categories</h4>
+            <div class="footer-links">
+              <a href="recipes.html">Breakfast</a>
+              <a href="recipes.html">Street Food</a>
+              <a href="recipes.html">Vegetarian</a>
+              <a href="recipes.html">Traditional</a>
+              <a href="recipes.html">Quick Meals</a>
+              <a href="recipes.html">Snacks</a>
+            </div>
+          </div>
+          <div class="footer-contact">
+            <h4 class="footer-title">Contact Info</h4>
+            <p>📍 Kampala, Uganda</p>
+            <p>📧 hello@tasteuganda.ug</p>
+            <p>📞 +256 700 123 456</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 TasteUganda</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      ↑
+    </button>
+    <div class="toast" id="toast">
+      <span class="toast-icon"></span>
+      <span id="toastMessage"></span>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
