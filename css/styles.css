@@ -404,8 +404,7 @@ p {
 }
 
 .btn-nav {
-  padding: 0.65rem 1.25rem;
-  max-height: 46px;
+  padding-inline: 1.15rem;
 }
 
 .hamburger {

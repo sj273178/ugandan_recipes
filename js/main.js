@@ -192,3 +192,327 @@ const foods = [
     fat: "6g",
   },
 ];
+
+document.addEventListener("DOMContentLoaded", () => {
+  initNavbarScroll();
+  initMobileMenu();
+  initSearchOverlay();
+  initHomeCategoryFilter();
+  initRecipeFilter();
+  initBackToTop();
+  initIngredientChecklist();
+  initContactForm();
+  initScrollAnimations();
+  initActiveNavLinks();
+  initSmoothScroll();
+  initStarRatings();
+  initQueryPrefill();
+  initActionButtons();
+});
+
+function syncBodyLock() {
+  const menuOpen = document
+    .getElementById("mobileMenu")
+    ?.classList.contains("open");
+  const searchOpen = document
+    .getElementById("searchOverlay")
+    ?.classList.contains("open");
+  document.body.classList.toggle("no-scroll", Boolean(menuOpen || searchOpen));
+}
+
+function initNavbarScroll() {
+  const navbar = document.getElementById("navbar");
+  if (!navbar) return;
+
+  const toggleScrolled = () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+  };
+
+  toggleScrolled();
+  window.addEventListener("scroll", toggleScrolled, { passive: true });
+}
+
+function initMobileMenu() {
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobileMenu");
+  if (!hamburger || !mobileMenu) return;
+
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    mobileMenu.classList.toggle("open");
+    syncBodyLock();
+  });
+
+  mobileMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      mobileMenu.classList.remove("open");
+      syncBodyLock();
+    });
+  });
+}
+
+function initSearchOverlay() {
+  const overlay = document.getElementById("searchOverlay");
+  const toggle = document.getElementById("searchToggle");
+  const closeBtn = document.getElementById("searchClose");
+  const input = document.getElementById("heroSearchInput");
+  if (!overlay || !toggle || !closeBtn || !input) return;
+
+  const openOverlay = () => {
+    overlay.classList.add("open");
+    syncBodyLock();
+    window.setTimeout(() => input.focus(), 120);
+  };
+
+  const closeOverlay = () => {
+    overlay.classList.remove("open");
+    syncBodyLock();
+  };
+
+  toggle.addEventListener("click", openOverlay);
+  closeBtn.addEventListener("click", closeOverlay);
+
+  overlay.addEventListener("click", (event) => {
+    if (event.target === overlay) closeOverlay();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && overlay.classList.contains("open")) {
+      closeOverlay();
+    }
+  });
+
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && input.value.trim()) {
+      window.location.href = `recipes.html?q=${encodeURIComponent(input.value.trim())}`;
+    }
+  });
+}
+
+function initHomeCategoryFilter() {
+  const chips = document.querySelectorAll(".category-chip");
+  const cards = document.querySelectorAll("[data-home-foods] .food-card");
+  if (!chips.length || !cards.length) return;
+
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const selected = chip.dataset.category || "all";
+      chips.forEach((item) => item.classList.toggle("active", item === chip));
+
+      cards.forEach((card) => {
+        const categories = (card.dataset.category || "").split(" ");
+        const show = selected === "all" || categories.includes(selected);
+        card.classList.toggle("recipe-card-hidden", !show);
+      });
+    });
+  });
+}
+
+function initRecipeFilter() {
+  const cards = document.querySelectorAll(".recipes-grid .food-card");
+  const tags = document.querySelectorAll(".filter-tag");
+  const searchInput = document.getElementById("recipeSearch");
+  const countEl = document.getElementById("recipeCount");
+  if (!cards.length || !tags.length || !searchInput || !countEl) return;
+
+  let activeFilter = "all";
+
+  const updateRecipes = () => {
+    const query = searchInput.value.trim().toLowerCase();
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const categories = (card.dataset.category || "").toLowerCase().split(" ");
+      const name = (card.dataset.name || "").toLowerCase();
+      const desc = (
+        card.dataset.desc ||
+        card.querySelector(".food-card-desc")?.textContent ||
+        ""
+      ).toLowerCase();
+      const matchesFilter =
+        activeFilter === "all" || categories.includes(activeFilter);
+      const matchesSearch =
+        !query || name.includes(query) || desc.includes(query);
+      const show = matchesFilter && matchesSearch;
+      card.classList.toggle("recipe-card-hidden", !show);
+      if (show) visibleCount += 1;
+    });
+
+    countEl.textContent = `${visibleCount} recipe${visibleCount === 1 ? "" : "s"}`;
+  };
+
+  tags.forEach((tag) => {
+    tag.addEventListener("click", () => {
+      activeFilter = tag.dataset.filter || "all";
+      tags.forEach((item) => item.classList.toggle("active", item === tag));
+      updateRecipes();
+    });
+  });
+
+  searchInput.addEventListener("input", updateRecipes);
+  updateRecipes();
+}
+
+function initQueryPrefill() {
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get("q");
+  const searchInput = document.getElementById("recipeSearch");
+  if (q && searchInput) {
+    searchInput.value = q;
+    searchInput.dispatchEvent(new Event("input"));
+  }
+}
+
+function initBackToTop() {
+  const button = document.getElementById("backToTop");
+  if (!button) return;
+
+  const onScroll = () => {
+    button.classList.toggle("show", window.scrollY > 400);
+  };
+
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  button.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+function initIngredientChecklist() {
+  const items = document.querySelectorAll(".ingredient-check");
+  if (!items.length) return;
+
+  items.forEach((item) => {
+    item.addEventListener("click", () => {
+      item.classList.toggle("checked");
+    });
+  });
+}
+
+function initContactForm() {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const firstName = form.querySelector("#firstName");
+    const lastName = form.querySelector("#lastName");
+    const email = form.querySelector("#email");
+    const message = form.querySelector("#message");
+
+    const fields = [firstName, lastName, email, message].filter(Boolean);
+    fields.forEach((field) => field.classList.remove("invalid"));
+
+    let hasError = false;
+    fields.forEach((field) => {
+      if (!field.value.trim()) {
+        field.classList.add("invalid");
+        hasError = true;
+      }
+    });
+
+    if (email && email.value.trim()) {
+      const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!validEmail.test(email.value.trim())) {
+        email.classList.add("invalid");
+        hasError = true;
+      }
+    }
+
+    if (hasError) {
+      showToast("Please complete all required fields correctly.", "⚠️");
+      return;
+    }
+
+    showToast("Message sent successfully. We will reply soon!", "✅");
+    form.reset();
+  });
+}
+
+let toastTimer;
+function showToast(message, icon = "✨") {
+  const toast = document.getElementById("toast");
+  const messageEl = document.getElementById("toastMessage");
+  const iconEl = toast?.querySelector(".toast-icon");
+  if (!toast || !messageEl || !iconEl) return;
+
+  messageEl.textContent = message;
+  iconEl.textContent = icon;
+  toast.classList.add("show");
+
+  window.clearTimeout(toastTimer);
+  toastTimer = window.setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+}
+
+function initScrollAnimations() {
+  const elements = document.querySelectorAll("[data-animate]");
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-in");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+  );
+
+  elements.forEach((el) => observer.observe(el));
+}
+
+function initActiveNavLinks() {
+  const currentPath = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".nav-link, .mobile-nav-link").forEach((link) => {
+    const href = link.getAttribute("href");
+    link.classList.toggle("active", href === currentPath);
+  });
+}
+
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (event) => {
+      const targetId = anchor.getAttribute("href");
+      if (!targetId || targetId === "#") return;
+      const target = document.querySelector(targetId);
+      if (!target) return;
+
+      event.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+}
+
+function initStarRatings() {
+  document.querySelectorAll("[data-rating]").forEach((element) => {
+    const rating = Number(element.dataset.rating) || 0;
+    const fullStars = Math.round(rating);
+    const stars = Array.from({ length: 5 }, (_, index) => {
+      const filled = index < fullStars;
+      return `<span class="star ${filled ? "filled" : "empty"}">★</span>`;
+    }).join("");
+
+    element.innerHTML = `${stars}<span class="rating-value">${rating.toFixed(1)}</span>`;
+  });
+}
+
+function initActionButtons() {
+  document.querySelectorAll("[data-toast-message]").forEach((button) => {
+    button.addEventListener("click", () => {
+      showToast(button.dataset.toastMessage, button.dataset.toastIcon || "💫");
+    });
+  });
+
+  const printButton = document.querySelector(".print-recipe");
+  if (printButton) {
+    printButton.addEventListener("click", () => {
+      window.print();
+    });
+  }
+}
