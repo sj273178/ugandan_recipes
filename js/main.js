@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initActiveNavLinks();
   initScrollAnimations();
   initStarRatings();
+  initBackToTop();
 });
 
 /* =========================================================
@@ -160,4 +161,20 @@ function initStarRatings() {
 
     el.innerHTML = `${stars}<span class="rating-value">${rating.toFixed(1)}</span>`;
   });
+}
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+function initBackToTop() {
+  const btn = document.getElementById("backToTop");
+  if (!btn) return;
+
+  const toggle = () => btn.classList.toggle("show", window.scrollY > 400);
+  toggle();
+  window.addEventListener("scroll", toggle, { passive: true });
+
+  btn.addEventListener("click", () =>
+    window.scrollTo({ top: 0, behavior: "smooth" }),
+  );
 }
