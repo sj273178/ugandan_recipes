@@ -40,7 +40,7 @@
           <!-- Right-side actions -->
           <div class="navbar-actions">
             <button class="search-toggle" id="searchToggle" aria-label="Search">
-              🔍
+              <iconify-icon icon="line-md:search"></iconify-icon>
             </button>
             <a href="recipes.html" class="btn btn-primary btn-nav">
               Explore Recipes
@@ -58,10 +58,30 @@
     <!-- ===================== MOBILE MENU ===================== -->
     <div class="mobile-menu" id="mobileMenu">
       <ul class="mobile-nav-links">
-        <li><a href="index.html" class="mobile-nav-link active">🏠 Home</a></li>
-        <li><a href="recipes.html" class="mobile-nav-link">📖 Recipes</a></li>
-        <li><a href="about.html" class="mobile-nav-link">🌍 About</a></li>
-        <li><a href="contact.html" class="mobile-nav-link">✉️ Contact</a></li>
+        <li>
+          <a href="index.html" class="mobile-nav-link active">
+            <iconify-icon icon="line-md:home"></iconify-icon>
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="recipes.html" class="mobile-nav-link">
+            <iconify-icon icon="line-md:list"></iconify-icon>
+            Recipes
+          </a>
+        </li>
+        <li>
+          <a href="about.html" class="mobile-nav-link">
+            <iconify-icon icon="mdi:earth"></iconify-icon>
+            About
+          </a>
+        </li>
+        <li>
+          <a href="contact.html" class="mobile-nav-link">
+            <iconify-icon icon="line-md:email"></iconify-icon>
+            Contact
+          </a>
+        </li>
       </ul>
       <a href="recipes.html" class="btn btn-primary mobile-nav-cta">
         Explore Recipes
@@ -72,7 +92,9 @@
     <div class="search-overlay" id="searchOverlay">
       <div class="search-box">
         <div class="search-input-wrapper">
-          <span class="search-icon-inner">🔍</span>
+          <span class="search-icon-inner">
+            <iconify-icon icon="line-md:search"></iconify-icon>
+          </span>
           <input
             type="text"
             class="search-input"
@@ -87,7 +109,51 @@
       </div>
     </div>
 
-    <main></main>
+    <main>
+      <section class="recipe-hero" id="recipeHero">
+        <div class="recipe-hero-bg" id="recipeHeroBg"></div>
+        <div class="recipe-hero-overlay"></div>
+        <div class="container">
+          <div class="recipe-hero-content" data-animate>
+            <div class="breadcrumb">
+              <a href="index.html">Home</a>
+              <span>›</span>
+              <a href="recipes.html">Recipes</a>
+              <span>›</span>
+              <span id="recipeBreadcrumbTitle">Recipe</span>
+            </div>
+            <div class="recipe-hero-badge" id="recipeHeroBadge">
+              Traditional
+            </div>
+            <h1 id="recipeHeroTitle">Loading…</h1>
+            <p id="recipeHeroDesc"></p>
+            <div class="recipe-hero-meta">
+              <div class="recipe-meta-pill">
+                <iconify-icon icon="line-md:watch"></iconify-icon>
+                <strong id="recipeHeroTime"></strong>
+              </div>
+              <div class="recipe-meta-pill">
+                <iconify-icon icon="line-md:account"></iconify-icon>
+                <strong id="recipeHeroDiff"></strong>
+              </div>
+              <div class="recipe-meta-pill">
+                <iconify-icon icon="mdi:silverware-fork-knife"></iconify-icon>
+                Serves
+                <strong id="recipeHeroServes"></strong>
+              </div>
+              <div class="recipe-meta-pill">
+                <iconify-icon icon="line-md:map-marker"></iconify-icon>
+                <strong id="recipeHeroRegion"></strong>
+              </div>
+              <div
+                class="recipe-meta-pill recipe-hero-stars"
+                id="recipeHeroStars"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <section class="cta-section">
       <div class="container">
