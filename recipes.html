@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover authentic Ugandan recipes, from Rolex and Matoke to Pilau and Luwombo."
+    />
+    <title>Taste Uganda | Authentic Ugandan Cuisine</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E🍽️%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+  </head>
+  <body>
+    <!-- ===================== NAVBAR ===================== -->
+    <nav class="navbar" id="navbar">
+      <div class="container">
+        <div class="navbar-inner">
+          <!-- Logo -->
+          <a href="index.html" class="navbar-logo">
+            <div class="logo-icon">🍽️</div>
+            <div class="logo-text">
+              Taste
+              <span>Uganda</span>
+            </div>
+          </a>
+
+          <!-- Desktop nav links -->
+          <ul class="navbar-nav">
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="recipes.html" class="nav-link">Recipes</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+
+          <!-- Right-side actions -->
+          <div class="navbar-actions">
+            <button class="search-toggle" id="searchToggle" aria-label="Search">
+              🔍
+            </button>
+            <a href="recipes.html" class="btn btn-primary btn-nav">
+              Explore Recipes
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===================== MOBILE MENU ===================== -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link active">🏠 Home</a></li>
+        <li><a href="recipes.html" class="mobile-nav-link">📖 Recipes</a></li>
+        <li><a href="about.html" class="mobile-nav-link">🌍 About</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">✉️ Contact</a></li>
+      </ul>
+      <a href="recipes.html" class="btn btn-primary mobile-nav-cta">
+        Explore Recipes
+      </a>
+    </div>
+
+    <!-- ===================== SEARCH OVERLAY ===================== -->
+    <div class="search-overlay" id="searchOverlay">
+      <div class="search-box">
+        <div class="search-input-wrapper">
+          <span class="search-icon-inner">🔍</span>
+          <input
+            type="text"
+            class="search-input"
+            id="heroSearchInput"
+            placeholder="Search Ugandan recipes..."
+          />
+          <button class="search-close" id="searchClose">✕</button>
+        </div>
+        <p class="search-hint">
+          Try: Rolex, Luwombo, Matoke, Pilau, Chapati...
+        </p>
+      </div>
+    </div>
+
+    <main>
+      <section class="page-hero page-hero-sm">
+        <div
+          class="page-hero-bg"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=1920&q=80&quot;);
+          "
+        ></div>
+        <div class="container">
+          <div class="page-hero-content" data-animate>
+            <div class="breadcrumb">
+              Home
+              <span>›</span>
+              Recipes
+            </div>
+            <h1>All Recipes</h1>
+            <p>
+              Explore over 200 authentic Ugandan recipes — from hearty stews and
+              street food to traditional celebrations dishes.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="recipes-filter-bar">
+        <div class="container">
+          <div class="filter-inner">
+            <div class="filter-categories" id="filterCategories">
+              <button class="filter-btn active" data-filter="all">
+                All Recipes
+              </button>
+              <button class="filter-btn" data-filter="breakfast">
+                🌅 Breakfast
+              </button>
+              <button class="filter-btn" data-filter="street-food">
+                🥙 Street Food
+              </button>
+              <button class="filter-btn" data-filter="traditional">
+                🍲 Traditional
+              </button>
+              <button class="filter-btn" data-filter="vegetarian">
+                🥦 Vegetarian
+              </button>
+              <button class="filter-btn" data-filter="quick-meals">
+                ⚡ Quick Meals
+              </button>
+              <button class="filter-btn" data-filter="snacks">🍿 Snacks</button>
+            </div>
+
+            <div class="filter-sort">
+              <label for="sortSelect" class="visually-hidden">Sort by</label>
+              <select id="sortSelect" class="sort-select">
+                <option value="popular">Most Popular</option>
+                <option value="newest">Newest First</option>
+                <option value="quickest">Quickest to Make</option>
+                <option value="rating">Highest Rated</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content" data-animate>
+          <div class="section-label section-label-light">
+            Join the TasteUganda Table
+          </div>
+          <h2>Ready to Cook Authentic Ugandan Food?</h2>
+          <p>
+            Join 50,000+ food lovers exploring Uganda's rich culinary heritage —
+            discover new recipes every week.
+          </p>
+          <div class="cta-actions">
+            <a href="recipe-detail.html" class="btn btn-primary btn-lg">
+              Start Cooking
+            </a>
+            <a href="recipes.html" class="btn btn-ghost btn-lg">
+              Browse Recipes
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Brand column -->
+          <div class="footer-brand">
+            <a href="index.html" class="navbar-logo">
+              <div class="logo-icon">🍽️</div>
+              <div class="logo-text logo-text-light">
+                Taste
+                <span>Uganda</span>
+              </div>
+            </a>
+            <p>
+              Celebrating the rich culinary heritage of Uganda, one recipe at a
+              time.
+            </p>
+            <div class="social-row">
+              <a href="#" class="social-btn" aria-label="Facebook">
+                <iconify-icon icon="line-md:facebook"></iconify-icon>
+              </a>
+              <a href="#" class="social-btn" aria-label="Instagram">
+                <iconify-icon icon="line-md:instagram"></iconify-icon>
+              </a>
+              <a href="#" class="social-btn" aria-label="Twitter">
+                <iconify-icon icon="line-md:twitter"></iconify-icon>
+              </a>
+              <a href="#" class="social-btn" aria-label="YouTube">
+                <iconify-icon icon="line-md:youtube-filled"></iconify-icon>
+              </a>
+              <a href="#" class="social-btn" aria-label="TikTok">
+                <iconify-icon icon="line-md:tiktok"></iconify-icon>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick links -->
+          <div>
+            <h4 class="footer-title">Quick Links</h4>
+            <div class="footer-links">
+              <a href="index.html">Home</a>
+              <a href="recipes.html">All Recipes</a>
+              <a href="about.html">About Us</a>
+              <a href="contact.html">Contact</a>
+              <a href="recipes.html">Top Recipes</a>
+            </div>
+          </div>
+
+          <!-- Categories -->
+          <div>
+            <h4 class="footer-title">Categories</h4>
+            <div class="footer-links">
+              <a href="recipes.html">Breakfast</a>
+              <a href="recipes.html">Street Food</a>
+              <a href="recipes.html">Vegetarian</a>
+              <a href="recipes.html">Traditional</a>
+              <a href="recipes.html">Quick Meals</a>
+              <a href="recipes.html">Snacks</a>
+            </div>
+          </div>
+
+          <!-- Contact info -->
+          <div class="footer-contact">
+            <h4 class="footer-title">Contact Info</h4>
+            <p>
+              <iconify-icon icon="typcn:location-outline"></iconify-icon>
+              Kampala, Uganda
+            </p>
+            <p>
+              <iconify-icon icon="line-md:email"></iconify-icon>
+              hello@tasteuganda.ug
+            </p>
+            <p>
+              <iconify-icon icon="line-md:phone"></iconify-icon>
+              +256 700 123 456
+            </p>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom">
+          <p>
+            <copyright>&copy;</copyright>
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            TasteUganda
+          </p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      ↑
+    </button>
+    <div class="toast" id="toast">
+      <span class="toast-icon"></span>
+      <span id="toastMessage"></span>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
