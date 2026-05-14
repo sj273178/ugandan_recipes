@@ -153,6 +153,80 @@
           </div>
         </div>
       </section>
+      <section class="section recipe-body-section">
+        <div class="container">
+          <div class="recipe-body-grid">
+            <!-- SIDEBAR -->
+            <aside class="recipe-sidebar" data-animate>
+              <div class="sidebar-card">
+                <h3>🛒 Ingredients</h3>
+                <ul class="ingredients-list" id="ingredientsList">
+                  <!-- populated by JS -->
+                </ul>
+              </div>
+
+              <div class="sidebar-card sidebar-card-dark">
+                <h3>⚡ Quick Info</h3>
+                <div class="quick-info-list">
+                  <div class="quick-info-row">
+                    <span>Cook Time</span>
+                    <strong id="sidebarTime"></strong>
+                  </div>
+                  <div class="quick-info-row">
+                    <span>Difficulty</span>
+                    <strong id="sidebarDiff"></strong>
+                  </div>
+                  <div class="quick-info-row">
+                    <span>Serves</span>
+                    <strong id="sidebarServes"></strong>
+                  </div>
+                  <div class="quick-info-row">
+                    <span>Region</span>
+                    <strong id="sidebarRegion"></strong>
+                  </div>
+                  <div class="quick-info-row">
+                    <span>Category</span>
+                    <strong id="sidebarCategory"></strong>
+                  </div>
+                  <div class="quick-info-row">
+                    <span>Rating</span>
+                    <strong id="sidebarRating"></strong>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="recipes.html"
+                class="btn btn-primary"
+                style="width: 100%; text-align: center"
+              >
+                ← Back to All Recipes
+              </a>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <div class="recipe-main" data-animate>
+              <div class="section-label">How to Make It</div>
+              <h2 class="recipe-steps-title" id="recipeStepsTitle"></h2>
+
+              <ol class="steps-list" id="stepsList">
+                <!-- populated by JS -->
+              </ol>
+
+              <div class="recipe-tip-box">
+                <div class="tip-icon">💡</div>
+                <div>
+                  <strong>Chef's Tip</strong>
+                  <p id="recipeTip">
+                    For the best flavour, use fresh locally-sourced ingredients
+                    and take your time with each step.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <section class="cta-section">

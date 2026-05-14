@@ -747,10 +747,10 @@ function initRecipeDetail() {
   const id = params.get("id") || "rolex";
   const recipe = RECIPES.find((r) => r.id === id) || RECIPES[0];
 
-  /* update page title */
+  /* page title */
   document.title = `${recipe.title} | Taste Uganda`;
 
-  /* hero */
+  /* --- HERO --- */
   document.getElementById("recipeHeroBg").style.backgroundImage =
     `url('${recipe.image}')`;
   document.getElementById("recipeHeroBadge").textContent = recipe.categoryLabel;
@@ -764,4 +764,23 @@ function initRecipeDetail() {
   document.getElementById("recipeHeroStars").innerHTML = renderStarHTML(
     recipe.rating,
   );
+
+  /* --- SIDEBAR --- */
+  document.getElementById("sidebarTime").textContent = recipe.timeLabel;
+  document.getElementById("sidebarDiff").textContent = recipe.difficulty;
+  document.getElementById("sidebarServes").textContent = recipe.serves;
+  document.getElementById("sidebarRegion").textContent = recipe.region;
+  document.getElementById("sidebarCategory").textContent = recipe.categoryLabel;
+  document.getElementById("sidebarRating").textContent = `${recipe.rating} / 5`;
+
+  document.getElementById("ingredientsList").innerHTML = recipe.ingredients
+    .map((i) => `<li>${i}</li>`)
+    .join("");
+
+  /* --- STEPS --- */
+  document.getElementById("recipeStepsTitle").textContent =
+    `How to Make ${recipe.title}`;
+  document.getElementById("stepsList").innerHTML = recipe.steps
+    .map((s) => `<li><p>${s}</p></li>`)
+    .join("");
 }
