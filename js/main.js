@@ -222,8 +222,7 @@ const RECIPES = [
     timeLabel: "20 min",
     difficulty: "Easy",
     rating: 4.9,
-    image:
-      "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80",
+    image: "assets/images/rolex.jpeg",
     region: "Kampala",
     serves: 2,
     ingredients: [
@@ -255,8 +254,7 @@ const RECIPES = [
     timeLabel: "60 min",
     difficulty: "Medium",
     rating: 4.8,
-    image:
-      "https://images.unsplash.com/photo-1488477181212-725dfc3a1057?auto=format&fit=crop&w=600&q=80",
+    image: "assets/images/matooke.jpg",
     region: "Central Uganda",
     serves: 4,
     ingredients: [
@@ -289,7 +287,7 @@ const RECIPES = [
     timeLabel: "90 min",
     difficulty: "Medium",
     rating: 4.9,
-    image: "luwombo.jpg",
+    image: "assets/images/luwombo.jpg",
     region: "Buganda",
     serves: 4,
     ingredients: [
@@ -323,8 +321,7 @@ const RECIPES = [
     timeLabel: "75 min",
     difficulty: "Medium",
     rating: 4.7,
-    image:
-      "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80",
+    image: "assets/images/pilau.jpg",
     region: "Nationwide",
     serves: 6,
     ingredients: [
@@ -361,8 +358,7 @@ const RECIPES = [
     timeLabel: "30 min",
     difficulty: "Easy",
     rating: 4.8,
-    image:
-      "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=80",
+    image: "assets/images/chapati.webp",
     region: "Nationwide",
     serves: 6,
     ingredients: [
@@ -392,8 +388,7 @@ const RECIPES = [
     timeLabel: "45 min",
     difficulty: "Easy",
     rating: 4.6,
-    image:
-      "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80",
+    image: "assets/images/peanut_sauce.jpg",
     region: "Nationwide",
     serves: 4,
     ingredients: [
@@ -783,4 +778,47 @@ function initRecipeDetail() {
   document.getElementById("stepsList").innerHTML = recipe.steps
     .map((s) => `<li><p>${s}</p></li>`)
     .join("");
+
+  /* --- SIMILAR RECIPES --- */
+  const similarGrid = document.getElementById("similarRecipesGrid");
+  if (similarGrid) {
+    const similar = RECIPES.filter(
+      (r) => r.category === recipe.category && r.id !== recipe.id,
+    ).slice(0, 3);
+    const fallback =
+      similar.length < 3
+        ? [
+            ...similar,
+            ...RECIPES.filter(
+              (r) => r.id !== recipe.id && !similar.includes(r),
+            ).slice(0, 3 - similar.length),
+          ]
+        : similar;
+
+    similarGrid.innerHTML = fallback
+      .map(
+        (r) => `
+      <div class="recipe-card" data-animate>
+        <div class="recipe-card-img">
+          <img src="${r.image}" alt="${r.title}" loading="lazy">
+          <span class="recipe-card-badge">${r.categoryLabel}</span>
+        </div>
+        <div class="recipe-card-body">
+          <h3>${r.title}</h3>
+          <p>${r.description}</p>
+          <div class="recipe-card-meta">
+            <span>⏱ ${r.timeLabel}</span>
+            <span>👤 ${r.difficulty}</span>
+            <div class="recipe-card-stars">${renderStarHTML(r.rating)}</div>
+          </div>
+          <a href="recipe-detail.html?id=${r.id}" class="btn btn-primary btn-view-recipe">View Recipe →</a>
+        </div>
+      </div>`,
+      )
+      .join("");
+
+    similarGrid.querySelectorAll("[data-animate]").forEach((el) => {
+      animationObserver && animationObserver.observe(el);
+    });
+  }
 }
