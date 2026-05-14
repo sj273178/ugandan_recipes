@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initStarRatings();
   initBackToTop();
   initContactForm();
+  initRecipeFilter();
 });
 
 /* =========================================================
@@ -200,5 +201,26 @@ function initContactForm() {
       form.reset();
       showToast("Message sent! We'll be in touch soon. 🎉");
     }, 1400);
+  });
+}
+
+/* =========================================================
+   RECIPES FILTER BAR
+   ========================================================= */
+function initRecipeFilter() {
+  const btns = document.querySelectorAll(".filter-btn");
+  if (!btns.length) return;
+
+  btns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filter = btn.dataset.filter;
+      document.querySelectorAll(".recipe-card").forEach((card) => {
+        const match = filter === "all" || card.dataset.category === filter;
+        card.style.display = match ? "" : "none";
+      });
+    });
   });
 }
