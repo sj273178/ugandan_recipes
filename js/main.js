@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollAnimations();
   initStarRatings();
   initBackToTop();
+  initContactForm();
 });
 
 /* =========================================================
@@ -177,4 +178,27 @@ function initBackToTop() {
   btn.addEventListener("click", () =>
     window.scrollTo({ top: 0, behavior: "smooth" }),
   );
+}
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
+function initContactForm() {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('[type="submit"]');
+    const original = btn.textContent;
+    btn.textContent = "Sending…";
+    btn.disabled = true;
+
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.disabled = false;
+      form.reset();
+      showToast("Message sent! We'll be in touch soon. 🎉");
+    }, 1400);
+  });
 }

@@ -1673,3 +1673,21 @@ p {
   font-size: 0.97rem;
   line-height: 1.75;
 }
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-form-card,
+  .contact-info-card {
+    padding: 1.8rem 1.4rem;
+  }
+  .page-hero-sm {
+    min-height: 240px;
+  }
+}
