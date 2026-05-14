@@ -745,7 +745,6 @@ function initRecipeDetail() {
   document.getElementById("recipeHeroBadge").textContent = recipe.categoryLabel;
   document.getElementById("recipeHeroTitle").textContent = recipe.title;
   document.getElementById("recipeHeroDesc").textContent = recipe.description;
-  document.getElementById("recipeBreadcrumbTitle").textContent = recipe.title;
   document.getElementById("recipeHeroTime").textContent = recipe.timeLabel;
   document.getElementById("recipeHeroDiff").textContent = recipe.difficulty;
   document.getElementById("recipeHeroServes").textContent = recipe.serves;
@@ -753,6 +752,9 @@ function initRecipeDetail() {
   document.getElementById("recipeHeroStars").innerHTML = renderStarHTML(
     recipe.rating,
   );
+
+  const breadcrumbTitle = document.getElementById("recipeBreadcrumbTitle");
+  if (breadcrumbTitle) breadcrumbTitle.textContent = recipe.title;
 
   /* --- SIDEBAR --- */
   document.getElementById("sidebarTime").textContent = recipe.timeLabel;
