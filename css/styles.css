@@ -2461,3 +2461,7 @@ p {
     order: 1;
   }
 }
+
+.similar-recipes-section {
+  background: #faf0e6;
+}
