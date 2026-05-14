@@ -421,8 +421,7 @@ const RECIPES = [
     timeLabel: "80 min",
     difficulty: "Hard",
     rating: 4.7,
-    image:
-      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80",
+    image: "assets/images/malewa.jpeg",
     region: "Bugisu — East Uganda",
     serves: 4,
     ingredients: [
@@ -455,8 +454,7 @@ const RECIPES = [
     timeLabel: "35 min",
     difficulty: "Easy",
     rating: 4.5,
-    image:
-      "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=600&q=80",
+    image: "assets/images/mandazi.jpg",
     region: "Coastal & Nationwide",
     serves: 12,
     ingredients: [
@@ -489,8 +487,7 @@ const RECIPES = [
     timeLabel: "40 min",
     difficulty: "Easy",
     rating: 4.4,
-    image:
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80",
+    image: "assets/images/katogo.webp",
     region: "Kampala",
     serves: 3,
     ingredients: [
@@ -523,8 +520,7 @@ const RECIPES = [
     timeLabel: "25 min",
     difficulty: "Easy",
     rating: 4.3,
-    image:
-      "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80",
+    image: "assets/images/posho_beans.jpeg",
     region: "Nationwide",
     serves: 4,
     ingredients: [
@@ -557,8 +553,7 @@ const RECIPES = [
     timeLabel: "50 min",
     difficulty: "Medium",
     rating: 4.8,
-    image:
-      "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
+    image: "assets/images/muchomo.webp",
     region: "Nationwide",
     serves: 4,
     ingredients: [
@@ -592,8 +587,7 @@ const RECIPES = [
     timeLabel: "30 min",
     difficulty: "Easy",
     rating: 4.6,
-    image:
-      "https://images.unsplash.com/photo-1519984388953-d2406bc725e1?auto=format&fit=crop&w=600&q=80",
+    image: "assets/images/mputa.jpeg",
     region: "Lake Victoria",
     serves: 3,
     ingredients: [
