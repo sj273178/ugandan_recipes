@@ -1691,3 +1691,94 @@ p {
     min-height: 240px;
   }
 }
+
+.about-story-section {
+  background: #fff;
+}
+
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-story-text .section-title {
+  margin-bottom: 1.4rem;
+}
+
+.about-story-text p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1.1rem;
+}
+
+.about-story-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.8rem;
+}
+.story-tag {
+  background: var(--cream);
+  border: 1px solid #e8e0d6;
+  border-radius: 50px;
+  padding: 0.4rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.story-img-wrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.14);
+  aspect-ratio: 4/3;
+}
+.story-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.story-img-wrap:hover img {
+  transform: scale(1.04);
+}
+
+.story-img-badge {
+  position: absolute;
+  bottom: 1.4rem;
+  left: 1.4rem;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 14px;
+  padding: 0.8rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.2;
+  box-shadow: 0 4px 18px rgba(192, 57, 43, 0.4);
+}
+.badge-num {
+  font-size: 1.6rem;
+  font-weight: 800;
+  font-family: "Playfair Display", Georgia, serif;
+}
+.badge-label {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  white-space: nowrap;
+}
+
+@media (max-width: 860px) {
+  .about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .about-story-image {
+    order: -1;
+  }
+}
