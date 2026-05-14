@@ -129,23 +129,25 @@ function initActiveNavLinks() {
 /* =========================================================
    SCROLL ANIMATIONS — IntersectionObserver for [data-animate]
 ========================================================= */
+let animationObserver = null;
+
 function initScrollAnimations() {
   const elements = document.querySelectorAll("[data-animate]");
   if (!elements.length) return;
 
-  const observer = new IntersectionObserver(
+  animationObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate-in");
-          observer.unobserve(entry.target);
+          animationObserver.unobserve(entry.target);
         }
       });
     },
     { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
   );
 
-  elements.forEach((el) => observer.observe(el));
+  elements.forEach((el) => animationObserver.observe(el));
 }
 
 /* =========================================================
@@ -201,27 +203,6 @@ function initContactForm() {
       form.reset();
       showToast("Message sent! We'll be in touch soon. 🎉");
     }, 1400);
-  });
-}
-
-/* =========================================================
-   RECIPES FILTER BAR
-   ========================================================= */
-function initRecipeFilter() {
-  const btns = document.querySelectorAll(".filter-btn");
-  if (!btns.length) return;
-
-  btns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      btns.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      const filter = btn.dataset.filter;
-      document.querySelectorAll(".recipe-card").forEach((card) => {
-        const match = filter === "all" || card.dataset.category === filter;
-        card.style.display = match ? "" : "none";
-      });
-    });
   });
 }
 
