@@ -305,38 +305,24 @@ ol {
 }
 
 .hamburger span {
-  position: absolute;
-  left: 14px;
   width: 20px;
   height: 2px;
   background: var(--text-primary);
   border-radius: var(--radius-full);
   transition:
     transform var(--transition-base),
-    opacity var(--transition-base),
-    top var(--transition-base);
-}
-
-.hamburger span:nth-child(1) {
-  top: 17px;
-}
-.hamburger span:nth-child(2) {
-  top: 23px;
-}
-.hamburger span:nth-child(3) {
-  top: 29px;
+    opacity var(--transition-base);
 }
 
 .hamburger.active span:nth-child(1) {
-  top: 23px;
-  transform: rotate(45deg);
+  transform: translateY(6px) rotate(45deg);
 }
 .hamburger.active span:nth-child(2) {
   opacity: 0;
+  transform: scaleX(0);
 }
 .hamburger.active span:nth-child(3) {
-  top: 23px;
-  transform: rotate(-45deg);
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 /* =========================================================
@@ -575,7 +561,11 @@ ol {
   }
 
   .hamburger {
-    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px;
   }
 }
 
@@ -1438,9 +1428,17 @@ p {
   z-index: 1;
 }
 
-.page-hero-content {
-  max-width: 680px;
+.page-hero-inner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
   padding: 3rem 0;
+  width: 100%;
+}
+
+.page-hero-content {
+  max-width: 580px;
 }
 .page-hero-content h1 {
   font-size: clamp(2.2rem, 5vw, 3.8rem);
@@ -1457,17 +1455,50 @@ p {
 }
 
 .breadcrumb {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 0.4rem;
   font-size: 0.88rem;
   letter-spacing: 0.04em;
-  opacity: 0.78;
+  opacity: 0.82;
   text-transform: uppercase;
   font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-bottom: 0.15rem;
 }
 .breadcrumb span {
   opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .page-hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 2.5rem 0;
+  }
+
+  .breadcrumb {
+    white-space: normal;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-hero-inner {
+    padding: 1.75rem 0;
+    gap: 0.5rem;
+  }
+
+  .page-hero-content h1 {
+    font-size: clamp(1.6rem, 7vw, 2.4rem);
+  }
+
+  .page-hero-content p {
+    font-size: 0.97rem;
+  }
 }
 
 .contact-grid {
@@ -2204,17 +2235,17 @@ p {
   padding: 0 1rem;
 }
 
-.recipe-hero-content .breadcrumb {
-  margin-bottom: 1rem;
-  opacity: 0.8;
+.recipe-hero .breadcrumb {
+  opacity: 0.82;
+  align-self: flex-end;
 }
-.recipe-hero-content .breadcrumb a {
+.recipe-hero .breadcrumb a {
   color: #fff;
   text-decoration: none;
   opacity: 0.8;
   transition: opacity var(--transition);
 }
-.recipe-hero-content .breadcrumb a:hover {
+.recipe-hero .breadcrumb a:hover {
   opacity: 1;
 }
 
