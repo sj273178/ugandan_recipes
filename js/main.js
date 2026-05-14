@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initBackToTop();
   initContactForm();
   initRecipeFilter();
+  initRecipeDetail();
 });
 
 /* =========================================================
@@ -734,4 +735,33 @@ function renderFromList(list) {
   grid.querySelectorAll("[data-animate]").forEach((el) => {
     animationObserver && animationObserver.observe(el);
   });
+}
+
+/* =========================================================
+   RECIPE DETAIL PAGE
+   ========================================================= */
+function initRecipeDetail() {
+  if (!document.getElementById("recipeHero")) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id") || "rolex";
+  const recipe = RECIPES.find((r) => r.id === id) || RECIPES[0];
+
+  /* update page title */
+  document.title = `${recipe.title} | Taste Uganda`;
+
+  /* hero */
+  document.getElementById("recipeHeroBg").style.backgroundImage =
+    `url('${recipe.image}')`;
+  document.getElementById("recipeHeroBadge").textContent = recipe.categoryLabel;
+  document.getElementById("recipeHeroTitle").textContent = recipe.title;
+  document.getElementById("recipeHeroDesc").textContent = recipe.description;
+  document.getElementById("recipeBreadcrumbTitle").textContent = recipe.title;
+  document.getElementById("recipeHeroTime").textContent = recipe.timeLabel;
+  document.getElementById("recipeHeroDiff").textContent = recipe.difficulty;
+  document.getElementById("recipeHeroServes").textContent = recipe.serves;
+  document.getElementById("recipeHeroRegion").textContent = recipe.region;
+  document.getElementById("recipeHeroStars").innerHTML = renderStarHTML(
+    recipe.rating,
+  );
 }
