@@ -548,11 +548,7 @@ ol {
 }
 
 /* =========================================================
-   RESPONSIVE — NAVBAR
-========================================================= */
-
-/* =========================================================
-   TYPOGRAPHY — HERO
+   TYPOGRAPHY 
 ========================================================= */
 h1,
 h2,
@@ -632,7 +628,7 @@ p {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url("/assets/images/rolex.jpeg");
+  background-image: url("/assets/images/taste_uganda_home.jpeg");
   background-size: cover;
   background-position: center;
   transform: scale(1.04);
@@ -644,23 +640,22 @@ p {
   inset: 0;
   background:
     radial-gradient(
-      circle at top right,
-      rgba(201, 168, 76, 0.22),
-      transparent 30%
+      ellipse at center,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.165) 60%,
+      rgba(0, 0, 0, 0.109) 100%
     ),
-    linear-gradient(
-      135deg,
-      rgba(28, 28, 30, 0.82),
-      rgba(28, 28, 30, 0.45) 45%,
-      rgba(192, 57, 43, 0.25)
-    );
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
 }
 
 /* Hero content */
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 760px;
+  width: 100%;
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
   color: #fff;
   padding: 3rem 0 5rem;
 }
@@ -670,25 +665,34 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
-  padding: 0.7rem 1rem;
+  padding: 0.7rem 1.2rem;
   border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(14px);
   margin-bottom: 1.5rem;
   color: #fff;
   font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .hero-title {
   color: #fff;
   margin-bottom: 1.25rem;
+  text-shadow:
+    0 2px 24px rgba(0, 0, 0, 0.6),
+    0 1px 4px rgba(0, 0, 0, 0.4);
+  line-height: 1.15;
 }
 
 .hero-text {
   max-width: 640px;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 1.08rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.93);
+  font-size: 1.1rem;
+  line-height: 1.75;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
   margin-bottom: 2rem;
 }
 
@@ -696,6 +700,7 @@ p {
 .hero-actions {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 2.5rem;
@@ -705,16 +710,17 @@ p {
 .hero-stats {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
 }
 
 .stat-item {
   min-width: 140px;
-  padding: 1rem 1.2rem;
+  padding: 1rem 1.4rem;
   border-radius: var(--radius-xl);
-  background: rgba(255, 255, 255, 0.11);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px);
 }
 
 .stat-number {
@@ -724,7 +730,7 @@ p {
 }
 
 .stat-label {
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(255, 255, 255, 0.88);
   font-size: 0.92rem;
 }
 
@@ -754,9 +760,6 @@ p {
   );
 }
 
-/* =========================================================
-   ANIMATIONS
-========================================================= */
 @keyframes bounce {
   0%,
   20%,
@@ -773,13 +776,6 @@ p {
   }
 }
 
-/* =========================================================
-   RESPONSIVE — HERO
-========================================================= */
-
-/* =========================================================
-   SECTION UTILITIES
-========================================================= */
 .section {
   padding: 6.5rem 0;
 }
@@ -1040,10 +1036,6 @@ p {
 }
 
 /* =========================================================
-   RESPONSIVE — TOP RATED
-========================================================= */
-
-/* =========================================================
    FOOTER
 ========================================================= */
 .footer {
@@ -1263,10 +1255,6 @@ p {
   gap: 1rem;
   margin-top: 2rem;
 }
-
-/* =========================================================
-   RESPONSIVE — FOOTER
-========================================================= */
 
 .page-hero {
   position: relative;
@@ -2337,6 +2325,7 @@ p {
   }
 
   .hero-content {
+    max-width: 100%;
     padding-top: 6rem;
   }
 
