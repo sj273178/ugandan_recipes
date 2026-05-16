@@ -1,10 +1,10 @@
 # Ugandan Food Recipes — Taste Uganda
 
-A multi-page website that celebrates authentic Ugandan cuisine. It allows visitors to discover, browse, and read about traditional Ugandan dishes such as Rolex, Matoke, Pilau, and Luwombo.
+A multi-page website that celebrates authentic Ugandan cuisine. It allows visitors to discover, browse, and read about traditional Ugandan dishes such as Rolex, Matoke, Pilau, and Luwombo. Most importantly the users are able to get the recipe and then prepare the food themselves.
 
 ## About the Project
 
-This project was built as part of an Internet and Web Design course. The goal was to design and develop a fully functional static website using only HTML, CSS, and JavaScript — no frameworks or libraries.
+This project was built as part of an Internet and Web Design course. The goal was to design and develop a fully functional website addressing a real world problem.
 
 The site is named **Taste Uganda** and is designed to be clean, responsive, and easy to navigate on both desktop and mobile devices.
 
