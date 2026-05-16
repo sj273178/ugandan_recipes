@@ -670,7 +670,14 @@ function initRecipeFilter() {
   const btns = document.querySelectorAll(".filter-btn");
   if (!btns.length) return;
 
-  renderRecipes("all");
+  const params = new URLSearchParams(window.location.search);
+  const initialFilter = params.get("category") || "all";
+
+  // Activate the matching button on load
+  btns.forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.filter === initialFilter);
+  });
+  renderRecipes(initialFilter);
 
   btns.forEach((btn) => {
     btn.addEventListener("click", () => {
