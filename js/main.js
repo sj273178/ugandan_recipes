@@ -111,7 +111,19 @@ function initSearchOverlay() {
   // Enter to search
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && input.value.trim()) {
-      window.location.href = `recipes.html?q=${encodeURIComponent(input.value.trim())}`;
+      const query = input.value.trim().toLowerCase();
+      // Check for an exact (or close) match — go straight to that recipe
+      const exact = RECIPES.find(
+        (r) =>
+          r.title.toLowerCase() === query ||
+          r.id.toLowerCase() === query ||
+          r.id.toLowerCase().replace(/-/g, " ") === query,
+      );
+      if (exact) {
+        window.location.href = `recipe-detail.html?id=${exact.id}`;
+      } else {
+        window.location.href = `recipes.html?q=${encodeURIComponent(input.value.trim())}`;
+      }
     }
   });
 }
@@ -695,8 +707,46 @@ function initRecipeFilter() {
 
   const params = new URLSearchParams(window.location.search);
   const initialFilter = params.get("category") || "all";
+  const searchQuery = params.get("q") || "";
 
-  // Activate the matching button on load
+  // If there is a search query, filter by it immediately
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    const results = RECIPES.filter(
+      (r) =>
+        r.title.toLowerCase().includes(q) ||
+        r.description.toLowerCase().includes(q) ||
+        r.category.toLowerCase().includes(q) ||
+        r.region.toLowerCase().includes(q),
+    );
+
+    // Show a search results heading
+    const resultsBar = document.querySelector(".recipes-results-bar");
+    if (resultsBar) {
+      resultsBar.innerHTML = `<p class="results-count">Search results for <strong>"${searchQuery}"</strong>: <strong id="resultsCount">${results.length}</strong> recipe${results.length !== 1 ? "s" : ""} found</p>`;
+    }
+
+    renderFromList(results);
+
+    // Still wire up controls so user can refine further
+    btns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        // Once user clicks a category, leave search mode
+        applyFiltersAndSort();
+      });
+    });
+    sortSelect?.addEventListener("change", () => {
+      const activeFilter =
+        document.querySelector(".filter-btn.active")?.dataset.filter || "all";
+      const activeSort = sortSelect.value;
+      renderFromList(getSortedFilteredList(activeFilter, activeSort));
+    });
+    return;
+  }
+
+  // Activate the matching category button on load
   btns.forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.filter === initialFilter);
   });
