@@ -639,7 +639,7 @@ function renderRecipes(filter = "all") {
     .map((r) => {
       const stars = renderStarHTML(r.rating);
       return `
-      <div class="recipe-card" data-category="${r.category}" data-id="${r.id}" data-animate>
+      <article class="recipe-card" data-category="${r.category}" data-id="${r.id}" data-animate>
         <div class="recipe-card-img">
           <img src="${r.image}" alt="${r.title}" loading="lazy">
           <span class="recipe-card-badge">${r.categoryLabel}</span>
@@ -654,7 +654,7 @@ function renderRecipes(filter = "all") {
           </div>
           <a href="recipe-detail.html?id=${r.id}" class="btn btn-primary btn-view-recipe">View Recipe →</a>
         </div>
-      </div>`;
+      </article>`;
     })
     .join("");
 
