@@ -666,8 +666,31 @@ function renderStarHTML(rating) {
 /* =========================================================
    RECIPES FILTER BAR
    ========================================================= */
+function getSortedFilteredList(filter, sort) {
+  const base =
+    filter === "all"
+      ? [...RECIPES]
+      : RECIPES.filter((r) => r.category === filter);
+
+  switch (sort) {
+    case "rating":
+      return base.sort((a, b) => b.rating - a.rating);
+    case "quickest":
+      return base.sort((a, b) => a.time - b.time);
+    case "popular":
+      // Most popular = highest rated first
+      return base.sort((a, b) => b.rating - a.rating);
+    case "newest":
+      // Newest = reverse of default insertion order
+      return base.reverse();
+    default:
+      return base;
+  }
+}
+
 function initRecipeFilter() {
   const btns = document.querySelectorAll(".filter-btn");
+  const sortSelect = document.getElementById("sortSelect");
   if (!btns.length) return;
 
   const params = new URLSearchParams(window.location.search);
@@ -677,28 +700,25 @@ function initRecipeFilter() {
   btns.forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.filter === initialFilter);
   });
-  renderRecipes(initialFilter);
+
+  function applyFiltersAndSort() {
+    const activeFilter =
+      document.querySelector(".filter-btn.active")?.dataset.filter || "all";
+    const activeSort = sortSelect ? sortSelect.value : "popular";
+    renderFromList(getSortedFilteredList(activeFilter, activeSort));
+  }
+
+  applyFiltersAndSort();
 
   btns.forEach((btn) => {
     btn.addEventListener("click", () => {
       btns.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
-      renderRecipes(btn.dataset.filter);
+      applyFiltersAndSort();
     });
   });
 
-  document.getElementById("sortSelect")?.addEventListener("change", (e) => {
-    const active =
-      document.querySelector(".filter-btn.active")?.dataset.filter || "all";
-    const list =
-      active === "all"
-        ? [...RECIPES]
-        : RECIPES.filter((r) => r.category === active);
-    if (e.target.value === "rating") list.sort((a, b) => b.rating - a.rating);
-    if (e.target.value === "quickest") list.sort((a, b) => a.time - b.time);
-    /* newest / popular keep default order */
-    renderFromList(list);
-  });
+  sortSelect?.addEventListener("change", applyFiltersAndSort);
 }
 
 function renderFromList(list) {
